@@ -1,0 +1,74 @@
+API List
+========
+
+    - User
+    ------
+        1. Create Token
+
+            url:- '/auth/token'
+            method:- POST
+            payload: {
+                email: 'abc',
+                isAdmin: false (default)
+            }
+
+        2. update User Details
+
+            url:- '/auth/user'
+            method:- PUT
+            payload:- {
+                email: 'abc',
+                isAdmin: false (update only isAdmin field)
+            }
+
+
+    - Movie
+    -------
+        1. List all the movies
+
+            url:- '/movies';
+            method:- GET
+        
+        2. Search movies
+
+            url:- '/search';
+            method:- GET
+            params: {
+                q : 'search_key'
+            }
+
+        3. Add new movie
+
+            url:- '/movies';
+            method:- POST
+            header: {
+                authorization: TOKEN
+            }
+            payload: {
+                "title": "spider-man", 
+                "genre": "sci-fi", 
+                "rating": 8, 
+                "streaming_link": "bookmyshow.com"
+            }
+
+        4. Update movie
+
+            url:- '/movies/:id';
+            method:- PUT
+            header: {
+                authorization: TOKEN
+            }
+            payload: {
+                "title": "spider-man", 
+                "genre": "sci-fi", 
+                "rating": 8, 
+                "streaming_link": "bookmyshow.com"
+            }
+
+        4. Delete movie
+
+            url:- '/movies/:id';
+            header: {
+                authorization: TOKEN
+            }
+            method:- DELETE
