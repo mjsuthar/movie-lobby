@@ -24,7 +24,7 @@ export class TempController {
                     message: "you have no right to use this API."
                 }
             }
-            
+
             const { title, genre, rating, streaming_link } = this._request.body;
 
             if(!title) { throw new Error("Title Value not received.") }
@@ -124,6 +124,12 @@ export class TempController {
 
         try {
 
+            if(!APP.user.isAdmin) {
+                return {
+                    message: "you have no right to use this API."
+                }
+            }
+
             const { id } = this._request.params;
 
             const { title, genre, rating, streaming_link } = this._request.body;
@@ -179,6 +185,12 @@ export class TempController {
 
         try {
 
+            if(!APP.user.isAdmin) {
+                return {
+                    message: "you have no right to use this API."
+                }
+            }
+            
             const { id } = this._request.params;
 
             if(!id) { throw new Error("ID not received.") }
